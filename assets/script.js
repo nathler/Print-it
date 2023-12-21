@@ -23,7 +23,7 @@ recupBalisePoints.classList.add("dot_selected"); }
 
 gauche.addEventListener("click", function() {
 	currentIndex--;
-if(currentIndex <0){ //
+if(currentIndex <0){ //-1 -2 -3 si =0 revient à l'initialisation 
     currentIndex= slides.length - 1;
 	}
 	miseAjourSlide(); 
@@ -32,7 +32,7 @@ if(currentIndex <0){ //
 droite.addEventListener("click",() => {
 	currentIndex++;
 if(currentIndex >= slides.length ){
-    currentIndex = 0 ;
+    currentIndex = 0 ; // retour à l'initialisation 0
 	
 }
 miseAjourSlide();
