@@ -19,20 +19,23 @@ for(let i = 0; i < slides.length; i++){
 	dots.innerHTML += '<span id="dot' + i + '" class="dot" title="Image ' + (i + 1) + '"></span>';  
      // initialisation des textes à utiliser avec un id ici de 0 à 3, la class dot est la même pour chaque élément
 	let recupBalisePoints = document.getElementById("dot0"); //initialisation du 1er texte 
-recupBalisePoints.classList.add("dot_selected"); }
+    recupBalisePoints.classList.add("dot_selected"); }
 
 gauche.addEventListener("click", function() {
-	currentIndex--;
-if(currentIndex <0){ //-1 -2 -3 si =0 revient à l'initialisation 
-    currentIndex= slides.length - 1;
+	console.log(currentIndex);
+	currentIndex--;	 
+	console.log(currentIndex);
+if(currentIndex <0){ //condition pour réinitialiser currentIndex qui à -1
+    currentIndex= slides.length - 1; //mettre currentIndex à 3
 	}
 	miseAjourSlide(); 
+	console.log(currentIndex);
 });
 
 droite.addEventListener("click",() => {
 	currentIndex++;
 if(currentIndex >= slides.length ){
-    currentIndex = 0 ; // retour à l'initialisation 0
+    currentIndex = 0 ; // retour à l'initialisation
 	
 }
 miseAjourSlide();
@@ -47,7 +50,7 @@ function miseAjourSlide(){
     
 	//MAJ TEXTE
 	const allDots = document.querySelectorAll(".dot");
-	//création function forEach 
+	//création function forEach non utile d'initialiser la variable index
 	allDots.forEach((dot, index) => {
 		//enlever la classe dot_selected 
 		dot.classList.remove('dot_selected'); //permet d'enlever tous les remplissages des points en retirant la classe
